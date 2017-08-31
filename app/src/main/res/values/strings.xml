@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">GetScreenPara</string>
+    <string name="app_name">ScreenManager</string>
+    <string name="sw">sw:</string>
+    <string name="density">density:</string>
+    <string name="densityDpi">densityDpi:</string>
+    <string name="hight_real">hight_real:</string>
+    <string name="screen_higth_real">screen hight_real:</string>
+    <string name="screen_width_real">screen width_real:</string>
+    <string name="screen_hight">screen hight:</string>
+    <string name="screen_width">screen width:</string>
 </resources>

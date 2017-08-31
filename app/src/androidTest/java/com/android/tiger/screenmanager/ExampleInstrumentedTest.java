@@ -1,4 +1,4 @@
-package com.android.tiger.getscreenpara;
+package com.android.tiger.screenmanager;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
