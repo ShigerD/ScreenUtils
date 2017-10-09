@@ -130,7 +130,7 @@ public class GetScreenParaAcitivity extends Activity {
         display.getCurrentSizeRange(smallestSize, largestSize);
         int minWidth=Math.min(smallestSize.x,smallestSize.y);
         int minHight=Math.min(largestSize.x,largestSize.y);
-        tv_screen_width.setText(String.valueOf(minWidth));
+        tv_screen_width.setText(String.valueOf(minWidth)+","+String.valueOf(minHight));
         tv_screen_hight.setText(String.valueOf(minHight));
         Log.w("smallestSize",smallestSize.toString());
         Log.w("largestSize",largestSize.toString());
