@@ -1,6 +1,8 @@
 package com.android.tiger.tools;
 
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -11,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class AppInfosAdapter extends BaseAdapter {
     private String TAG = "AppInfosAdapter";
@@ -65,7 +70,7 @@ public class AppInfosAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup arg2) {
+    public View getView(final int position, View convertView, ViewGroup arg2) {
         // TODO Auto-generated method stub
         ViewHolder viewHolder = null;
         if(null == convertView){
@@ -81,10 +86,33 @@ public class AppInfosAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
         if(null != appInfos){
+            final String appName = appInfos.get(position).getAppName();
+            final String packageName = appInfos.get(position).getPackageName();
+            final String activityName = getLauncherActivityNameByPackageName(context,packageName);
+
             viewHolder.appIconImg.setBackground(appInfos.get(position).getDrawable());
-            viewHolder.appNameText.setText(appInfos.get(position).getAppName());
-            viewHolder.appPackageText.setText(appInfos.get(position).getPackageName());
-            viewHolder.appActivityText.setText(getLauncherActivityNameByPackageName(context,appInfos.get(position).getPackageName()));
+            viewHolder.appNameText.setText(appName);
+            viewHolder.appPackageText.setText(packageName);
+            viewHolder.appActivityText.setText(activityName);
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG,"-onClick-" + packageName);
+                    if (activityName != null) {
+                        try{
+                            Intent intent = new Intent();
+                            intent.setComponent(new ComponentName(packageName,activityName));
+                            intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                        }catch (ActivityNotFoundException ex){
+                            ex.printStackTrace();
+                            Toast.makeText(context, "Activity not found", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                }
+            });
         }
 
         return convertView;
@@ -122,9 +150,7 @@ public class AppInfosAdapter extends BaseAdapter {
             }
         }
 
-
-
-        Log.w(TAG , resolveinfoList.toString());
+        Log.d(TAG , resolveinfoList.toString());
         try {
             ResolveInfo resolveinfo = resolveinfoList.iterator().next();
             if (resolveinfo != null) {

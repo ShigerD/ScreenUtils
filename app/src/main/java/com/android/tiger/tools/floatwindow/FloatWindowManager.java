@@ -199,8 +199,8 @@ public class FloatWindowManager {
 //            cmpNameTemp = (runningTaskInfos.get(0).topActivity).toString();
 //            className=runningTaskInfos.get(0).topActivity.getClassName();
 //            packageName=runningTaskInfos.get(0).topActivity.getPackageName();
-//            Log.w(TAG, "getTopActivity--"+packageName);
-//            Log.w(TAG, "getTopActivity--"+className);
+//            Log.d(TAG, "getTopActivity--"+packageName);
+//            Log.d(TAG, "getTopActivity--"+className);
 //        }
 
         ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -209,7 +209,7 @@ public class FloatWindowManager {
 
         List<ActivityManager.RunningTaskInfo> rti = mActivityManager.getRunningTasks(1);
         packageName=rti.get(0).topActivity.getPackageName();
-        Log.w(TAG,"packageName-"+packageName);
+        Log.d(TAG,"packageName-"+packageName);
         return packageName;
     }
 

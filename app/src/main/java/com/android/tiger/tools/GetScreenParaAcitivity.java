@@ -55,7 +55,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
     }
 
     private String getxdpi() {
-        Log.w(TAG, "Density is " + (int) mDensityDpi);
+        Log.d(TAG, "Density is " + (int) mDensityDpi);
         if ((int) mDensityDpi >= 480) {
             return "xxhdpi";
         } else if ((int) mDensityDpi >= 320) {
@@ -101,13 +101,13 @@ public class GetScreenParaAcitivity extends BaseActivity {
     private void getDisplayInfomation() {
         Point point = new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
-//        Log.w(TAG, "the screen size is " + point.toString());
+//        Log.d(TAG, "the screen size is " + point.toString());
 
         getWindowManager().getDefaultDisplay().getRealSize(point);
         tv_screen_width_real.setText(String.valueOf(point.x));
         tv_screen_hight_real.setText(String.valueOf(point.y));
         sereenRealHeight = point.y;
-        Log.w(TAG, "the screen real size is " + point.toString());
+        Log.d(TAG, "the screen real size is " + point.toString());
     }
 
     private void getMinSize(){
@@ -121,8 +121,8 @@ public class GetScreenParaAcitivity extends BaseActivity {
         int minHight=Math.min(largestSize.x,largestSize.y);
         tv_screen_width.setText(String.valueOf(minWidth)+","+String.valueOf(minHight));
         tv_screen_hight.setText(String.valueOf(minHight));
-        Log.w("smallestSize",smallestSize.toString());
-        Log.w("largestSize",largestSize.toString());
+        Log.d("smallestSize",smallestSize.toString());
+        Log.d("largestSize",largestSize.toString());
     }
 
     private void getDensity() {
@@ -131,7 +131,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
         mDensityDpi = displayMetrics.densityDpi;
         tv_density.setText(String.valueOf(mDensity));
         tv_densityDpi.setText(String.valueOf(mDensityDpi));
-        Log.w(TAG, "Density is " + mDensity + " densityDpi is " + mDensityDpi
+        Log.d(TAG, "Density is " + mDensity + " densityDpi is " + mDensityDpi
                 + " height: " + displayMetrics.heightPixels + " width: " + displayMetrics.widthPixels);
     }
 
@@ -141,7 +141,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
         String cmpNameTemp = null;
         if (null != runningTaskInfos) {
             cmpNameTemp = (runningTaskInfos.get(0).topActivity).toString();
-            Log.w("cmpNameTemp----", cmpNameTemp);
+            Log.d("cmpNameTemp----", cmpNameTemp);
         }
 
         if (null == cmpNameTemp) {
@@ -160,9 +160,9 @@ public class GetScreenParaAcitivity extends BaseActivity {
             cmpNameTemp = (runningTaskInfos.get(0).topActivity).toString();
             className=runningTaskInfos.get(0).topActivity.getClassName();
             packageName=runningTaskInfos.get(0).topActivity.getPackageName();
-//            Log.w(TAG, "getTopActivity--"+cmpNameTemp);
-            Log.w(TAG, "getTopActivity--"+packageName);
-            Log.w(TAG, "getTopActivity--"+className);
+//            Log.d(TAG, "getTopActivity--"+cmpNameTemp);
+            Log.d(TAG, "getTopActivity--"+packageName);
+            Log.d(TAG, "getTopActivity--"+className);
         }
         return className;
     }

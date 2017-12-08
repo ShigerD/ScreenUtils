@@ -58,7 +58,7 @@ public class ScreenBrightnessActivity extends Activity implements SeekBar.OnSeek
         int screenMode=0;
         try{
             screenMode = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE);
-            Log.w(TAG,"brightMode--"+screenMode);
+            Log.d(TAG,"brightMode--"+screenMode);
         }
         catch (Exception localException){
 
@@ -72,7 +72,7 @@ public class ScreenBrightnessActivity extends Activity implements SeekBar.OnSeek
         int screenBrightness=255;
         try{
             screenBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-            Log.w(TAG,"brightness--"+screenBrightness);
+            Log.d(TAG,"brightness--"+screenBrightness);
         }
         catch (Exception localException){
 
@@ -115,7 +115,7 @@ public class ScreenBrightnessActivity extends Activity implements SeekBar.OnSeek
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        Log.w(TAG,"seek-int-"+progress);
+        Log.d(TAG,"seek-int-"+progress);
         setScreenBrightness(progress);
         saveScreenBrightness(progress);
     }

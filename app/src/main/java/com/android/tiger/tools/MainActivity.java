@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                     Field activityField = activityRecordClass.getDeclaredField("activity");
                     activityField.setAccessible(true);
                     Activity activity = (Activity) activityField.get(activityRecord);
-                    Log.w("getActivity()--",activity.getPackageName());
+                    Log.d("getActivity()--",activity.getPackageName());
                     return activity.getPackageName();
                 }
             }

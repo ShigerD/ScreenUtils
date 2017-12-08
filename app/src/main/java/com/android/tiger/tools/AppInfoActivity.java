@@ -2,6 +2,7 @@ package com.android.tiger.tools;
 
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -12,6 +13,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -34,12 +37,14 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appinfo);
+        //setup view
         mAppInfoListView = (ListView) this.findViewById(R.id.appinfo_list);
         mAppFiliterSwitch = (Switch) findViewById(R.id.list_switch);
-        mAppInfos = getPackageInfos();
-        updateUI(mAppInfos);
         mAppFiliterSwitch.setOnCheckedChangeListener(this);
         registerDynamicReceiver();
+        //init
+        mAppInfos = getAppsInfo();
+        updateUI(mAppInfos);
 
         // 发送更新系统图库广播
 //        sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
@@ -49,14 +54,14 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         Log.d(TAG, "-onCheckedChanged-" + " buttonView = " + buttonView + " isChecked = " + isChecked);
-        switch (buttonView.getId()){
+        switch (buttonView.getId()) {
             case R.id.list_switch:
-                if(isChecked){
+                if (isChecked) {
                     mAppInfos = getPackageInfos();
                     updateUI(mAppInfos);
-                    Log.d(TAG,"-onCheckedChanged-" + isChecked);
-                }else {
-                    Log.d(TAG,"-onCheckedChanged-" + isChecked);
+                    Log.d(TAG, "-onCheckedChanged-" + isChecked);
+                } else {
+                    Log.d(TAG, "-onCheckedChanged-" + isChecked);
                     mAppInfos = getAppsInfo();
                     updateUI(mAppInfos);
                 }
@@ -67,7 +72,7 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
     @Override
     protected void onPause() {
         super.onPause();
-        Log.w(TAG, "onPause");
+        Log.d(TAG, "onPause");
     }
 
     @Override
@@ -83,7 +88,6 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
         }
     }
 
-
     List<AppInfo> getAppsInfo() {
         List<AppInfo> appInfos = new ArrayList<AppInfo>();
         PackageManager packageManager = getApplication().getPackageManager();
@@ -97,7 +101,6 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
             Drawable drawable = app.loadIcon(packageManager);
             AppInfo appInfo = new AppInfo(appName, packageName, drawable);
             appInfos.add(appInfo);
-
             int sourceWidth = drawable.getIntrinsicWidth();
             int sourceHeight = drawable.getIntrinsicHeight();
             Log.d(TAG, appName + "--sourceWidth=" + sourceWidth + " sourceHeight=" + sourceHeight);
@@ -117,8 +120,7 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
             String packageName = packgeInfo.packageName;
             Drawable drawable = packgeInfo.applicationInfo.loadIcon(packageManager);
             AppInfo appInfo = new AppInfo(appName, packageName, drawable);
-            Log.d(TAG, "appName=" + appName);
-            Log.w(TAG, " appNumber=" + appNumber + " appNumber0=" + appNumber0 + " appNumber1=" + appNumber1);
+            Log.d(TAG, " appNumber=" + appNumber + " appNumber0=" + appNumber0 + " appNumber1=" + appNumber1);
             mAppInfos.add(appInfo);
         }
         return mAppInfos;
@@ -138,8 +140,8 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
     class DynamicReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.e(TAG, "DynamicReceiver-onReceive--");
-            Log.e(TAG, "DynamicReceiver-onReceive--" + intent.getDataString());
+            Log.w(TAG, "DynamicReceiver-onReceive--");
+            Log.w(TAG, "DynamicReceiver-onReceive--" + intent.getDataString());
 //             Toast.makeText(context,"onReceive",Toast.LENGTH_SHORT).show();
         }
     }

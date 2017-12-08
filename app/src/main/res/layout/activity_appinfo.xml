@@ -45,8 +45,11 @@
             <Switch
                 android:id="@+id/list_switch"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:switchMinWidth="10dp"
+                android:layout_height="match_parent"
+                android:textOff="Off"
+                android:textOn="On"
+                android:switchMinWidth="5dp"
+                android:minHeight="10dp"
                 android:thumb="@drawable/switch_thumb"
                 android:track="@drawable/switch_track"
                 />
