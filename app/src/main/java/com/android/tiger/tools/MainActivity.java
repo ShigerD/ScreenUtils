@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.tiger.tools.floatwindow.FloatWindowService;
 
@@ -21,30 +22,29 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private String TAG = "MainActivity";
-    Button btnStartFloatWindow ,btnStartAppInfo;
-    Button btnStartGetScreenPara;
-    Button btnStartBright;
-    private Timer timer=new Timer();
+    Button btnStartFloatWindow;
+    TextView btnStartGetScreenPara, btnStartAppInfo;
+    TextView btnStartBright;
+    private Timer timer = new Timer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setupView();
 //        getAppDetailSettingIntent(getApplicationContext());
         getRunningActivityName(getApplicationContext());
         Log.e("Main", "test");
 //        timer.scheduleAtFixedRate(new RefreshTask(), 0, 500);
-
     }
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
-            case  R.id.start_appInfo:
+        switch (v.getId()) {
+            case R.id.start_appInfo:
                 Intent appInfoIntent = new Intent(MainActivity.this, AppInfoActivity.class);
                 startActivity(appInfoIntent);
             case R.id.start_float_window:
@@ -53,22 +53,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 //                finish();
                 break;
             case R.id.start_get_screen_para:
-                Intent getScreenParaIntent =new Intent(MainActivity.this,GetScreenParaAcitivity.class);
+                Intent getScreenParaIntent = new Intent(MainActivity.this, GetScreenParaAcitivity.class);
                 startActivity(getScreenParaIntent);
                 break;
             case R.id.start_get_screen_bright:
-                Intent intent_bright=new Intent(MainActivity.this,ScreenBrightnessActivity.class);
+                Intent intent_bright = new Intent(MainActivity.this, ScreenBrightnessActivity.class);
                 startActivity(intent_bright);
                 break;
         }
-
     }
 
-    private void setupView(){
+    private void setupView() {
         btnStartFloatWindow = (Button) findViewById(R.id.start_float_window);
-        btnStartGetScreenPara=(Button)findViewById(R.id.start_get_screen_para);
-        btnStartBright=(Button)findViewById(R.id.start_get_screen_bright);
-        btnStartAppInfo = (Button) findViewById(R.id.start_appInfo);
+        btnStartGetScreenPara = (TextView) findViewById(R.id.start_get_screen_para);
+        btnStartBright = (Button) findViewById(R.id.start_get_screen_bright);
+        btnStartAppInfo = (TextView) findViewById(R.id.start_appInfo);
         btnStartFloatWindow.setOnClickListener(this);
         btnStartGetScreenPara.setOnClickListener(this);
         btnStartBright.setOnClickListener(this);
@@ -83,7 +82,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             localIntent.setData(Uri.fromParts("package", getPackageName(), null));
         } else if (Build.VERSION.SDK_INT <= 8) {
             localIntent.setAction(Intent.ACTION_VIEW);
-            localIntent.setClassName("com.android.settings","com.android.settings.InstalledAppDetails");
+            localIntent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
             localIntent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
         }
         startActivity(localIntent);
@@ -93,20 +92,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         @Override
         public void run() {
-            String packagename=getRunningActivityName(getApplicationContext());
+            String packagename = getRunningActivityName(getApplicationContext());
 //
         }
-
     }
 
-
-
-    private String getRunningActivityName(Context context){
-        ActivityManager activityManager=(ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        String runningActivity=activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
-        Log.e("runningActivity","-"+runningActivity );
-
-        return  runningActivity;
+    private String getRunningActivityName(Context context) {
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        String runningActivity = activityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+        Log.e("runningActivity", "-" + runningActivity);
+        return runningActivity;
 //        String mpackageName=null;
 //        ActivityManager mActivityManager =(ActivityManager)this.getSystemService(Context.ACTIVITY_SERVICE);
 //        if(Build.VERSION.SDK_INT > 20){
@@ -136,13 +131,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                     Field activityField = activityRecordClass.getDeclaredField("activity");
                     activityField.setAccessible(true);
                     Activity activity = (Activity) activityField.get(activityRecord);
-                    Log.d("getActivity()--",activity.getPackageName());
+                    Log.d("getActivity()--", activity.getPackageName());
                     return activity.getPackageName();
                 }
             }
             return null;
-        }catch (Exception e){
-            Log.e("getActivity","--error");
+        } catch (Exception e) {
+            Log.e("getActivity", "--error");
             return null;
         }
 

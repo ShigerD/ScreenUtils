@@ -8,20 +8,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/start_appInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_frame"
+            android:text="应用信息"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            />
+
+        <TextView
+            android:id="@+id/start_get_screen_para"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_frame"
+            android:text="屏幕参数"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            />
 
         <Button
-            android:id="@+id/start_appInfo"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:text="显示所有包信息"
+            android:visibility="gone"
             >
         </Button>
 
         <Button
-            android:id="@+id/start_get_screen_para"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:text="获取屏幕参数"
+            android:visibility="gone"
             >
         </Button>
 
@@ -30,7 +49,8 @@
             android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:text="调节屏幕亮度"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
         </Button>
 
         <Button
