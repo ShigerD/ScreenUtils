@@ -10,25 +10,48 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/start_float_window"
+            android:id="@+id/start_appInfo"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="开启悬浮窗" >
+            android:text="显示所有包信息"
+            >
         </Button>
 
         <Button
             android:id="@+id/start_get_screen_para"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="获取屏幕参数" >
+            android:text="获取屏幕参数"
+            >
         </Button>
 
         <Button
             android:id="@+id/start_get_screen_bright"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="调节屏幕亮度" >
+            android:text="调节屏幕亮度"
+            android:visibility="gone">
         </Button>
+
+        <Button
+            android:id="@+id/start_float_window"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="开启悬浮窗"
+            android:visibility="gone">
+        </Button>
+
+        <GridView
+            android:id="@+id/grid_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:numColumns="4"
+            android:cacheColorHint="@android:color/transparent"
+            android:fadingEdge="none"
+            android:visibility="gone"
+            >
+        </GridView>
+
     </LinearLayout>
 
 </LinearLayout>

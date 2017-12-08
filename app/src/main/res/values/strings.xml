@@ -8,4 +8,5 @@
     <string name="screen_width_real">screen width_real:</string>
     <string name="screen_hight">screen hight:</string>
     <string name="screen_width">min size::</string>
+    <string name="app_infos">应用信息</string>
 </resources>
