@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="activity_amounts">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
+    <string-array name="grid_explaines">
+        <item>屏幕参数</item>
+        <item>应用信息</item>
+    </string-array>
+
+    <string-array name="activity_names">
+        <item>com.android.tiger.tools.GetScreenParaAcitivity</item>
+        <item>com.android.tiger.tools.AppInfoActivity</item>
+    </string-array>
+
+</resources>
