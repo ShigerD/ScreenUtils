@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GetScreenPara.iml" filepath="$PROJECT_DIR$/GetScreenPara.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScreenUtils.iml" filepath="$PROJECT_DIR$/ScreenUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
