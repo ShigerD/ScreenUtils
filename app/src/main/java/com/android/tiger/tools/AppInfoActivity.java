@@ -2,7 +2,6 @@ package com.android.tiger.tools;
 
 
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -10,16 +9,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +24,7 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
     private String TAG = "MainActivityappinfo";
     ListView mAppInfoListView = null;
     List<AppInfo> mAppInfos = null;
-    AppInfosAdapter mInfosAdapter = null;
+    AppInfosListViewAdapter mInfosAdapter = null;
     DynamicReceiver dynamicReceiver = new DynamicReceiver();
     Switch mAppFiliterSwitch;
 
@@ -83,7 +78,7 @@ public class AppInfoActivity extends BaseActivity implements CompoundButton.OnCh
 
     public void updateUI(List<AppInfo> appInfos) {
         if (null != appInfos) {
-            mInfosAdapter = new AppInfosAdapter(getApplication(), appInfos);
+            mInfosAdapter = new AppInfosListViewAdapter(getApplication(), appInfos);
             mAppInfoListView.setAdapter(mInfosAdapter);
         }
     }

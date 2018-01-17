@@ -19,14 +19,14 @@ import java.util.List;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class AppInfosAdapter extends BaseAdapter {
-    private String TAG = "AppInfosAdapter";
+public class AppInfosListViewAdapter extends BaseAdapter {
+    private String TAG = "AppInfosListViewAdapter";
     Context context;
     List<AppInfo> appInfos;
 
-    public AppInfosAdapter(){}
+    public AppInfosListViewAdapter(){}
 
-    public AppInfosAdapter(Context context , List<AppInfo> infos ){
+    public AppInfosListViewAdapter(Context context , List<AppInfo> infos ){
         this.context = context;
         this.appInfos = infos;
     }

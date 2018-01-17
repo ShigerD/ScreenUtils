@@ -279,4 +279,33 @@ public class HttpUtils {
         }
         return result;
     }
+
+
+    public static String sendEvPost(String target, String content) {
+        String result = null;
+        HttpClient httpclient = new DefaultHttpClient();	//创建HttpClient对象
+        HttpPost httpRequest = new HttpPost("http://139.224.37.24:8102/evcard-svm/api/activityList");	//创建HttpPost对象
+        //将要传递的参数保存到List集合中
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("param", "post"));	//标记参数
+        params.add(new BasicNameValuePair("terminalId", "123456"));	//昵称
+
+        try {
+            httpRequest.setEntity(new UrlEncodedFormEntity(params, "utf-8")); //设置编码方式
+            HttpResponse httpResponse = httpclient.execute(httpRequest);	//执行HttpClient请求
+            if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK){	//如果请求成功
+                result += EntityUtils.toString(httpResponse.getEntity());	//获取返回的字符串
+            }else{
+                result = "请求失败！";
+            }
+        } catch (UnsupportedEncodingException e1) {
+            e1.printStackTrace();	//输出异常信息
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();	//输出异常信息
+        } catch (IOException e) {
+            e.printStackTrace();	//输出异常信息
+        }
+        return result;
+    }
+
 }

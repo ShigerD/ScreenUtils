@@ -2,6 +2,7 @@ package com.android.tiger.tools.floatwindow;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.util.Log;
 import android.view.Gravity;
@@ -48,6 +49,14 @@ public class FloatWindowManager {
      */
     private static ActivityManager mActivityManager;
 
+
+    private static boolean getPermission(Context context){
+        String packname = context.getPackageName();
+        PackageManager packageManager = context.getPackageManager();
+        boolean permission = (PackageManager.PERMISSION_GRANTED ==
+                packageManager.checkPermission("android.permission.SYSTEM_ALERT_WINDOW", packname));
+        return permission;
+    }
     /**
      * 创建一个小悬浮窗。初始位置为屏幕的右部中间位置。
      *
@@ -55,14 +64,22 @@ public class FloatWindowManager {
      *            必须为应用程序的Context.
      */
     public static void createSmallWindow(Context context) {
+
         WindowManager windowManager = getWindowManager(context);
         int screenWidth = windowManager.getDefaultDisplay().getWidth();
         int screenHeight = windowManager.getDefaultDisplay().getHeight();
         if (smallWindow == null) {
             smallWindow = new FloatWindowSmallView(context);
             if (smallWindowParams == null) {
+
                 smallWindowParams = new WindowManager.LayoutParams();
-                smallWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                //绕过悬浮窗权限
+                if(getPermission(context)){
+                    smallWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                }else{
+                    smallWindowParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+                }
+
                 smallWindowParams.format = PixelFormat.RGBA_8888;
                 smallWindowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                         | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
@@ -75,7 +92,6 @@ public class FloatWindowManager {
             smallWindow.setParams(smallWindowParams);
             try {
                 windowManager.addView(smallWindow, smallWindowParams);
-
             }catch (WindowManager.BadTokenException ex){
                 ex.printStackTrace();
                 Toast.makeText(context, "请打开悬浮窗权限", Toast.LENGTH_LONG).show();
@@ -85,7 +101,6 @@ public class FloatWindowManager {
 
     /**
      * 将小悬浮窗从屏幕上移除。
-     *
      * @param context
      *            必须为应用程序的Context.
      */
@@ -99,7 +114,6 @@ public class FloatWindowManager {
 
     /**
      * 创建一个大悬浮窗。位置为屏幕正中间。
-     *
      * @param context
      *            必须为应用程序的Context.
      */
@@ -125,7 +139,6 @@ public class FloatWindowManager {
 
     /**
      * 将大悬浮窗从屏幕上移除。
-     *
      * @param context
      *            必须为应用程序的Context.
      */
@@ -139,7 +152,6 @@ public class FloatWindowManager {
 
     /**
      * 更新小悬浮窗的TextView上的数据，显示内存使用的百分比。
-     *
      * @param context
      *            可传入应用程序上下文。
      */
@@ -152,7 +164,6 @@ public class FloatWindowManager {
 
     /**
      * 是否有悬浮窗(包括小悬浮窗和大悬浮窗)显示在屏幕上。
-     *
      * @return 有悬浮窗显示在桌面上返回true，没有的话返回false。
      */
     public static boolean isWindowShowing() {
@@ -161,7 +172,6 @@ public class FloatWindowManager {
 
     /**
      * 如果WindowManager还未创建，则创建一个新的WindowManager返回。否则返回当前已创建的WindowManager。
-     *
      * @param context
      *            必须为应用程序的Context.
      * @return WindowManager的实例，用于控制在屏幕上添加或移除悬浮窗。
