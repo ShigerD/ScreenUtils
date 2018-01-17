@@ -1,4 +1,4 @@
-package com.android.tiger.tools.floatwindow;
+package com.shiger.tools.floatwindow;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.android.tiger.tools.R;
+import com.shiger.tools.R;
 
 public class FloatWindowBigView extends LinearLayout {
 

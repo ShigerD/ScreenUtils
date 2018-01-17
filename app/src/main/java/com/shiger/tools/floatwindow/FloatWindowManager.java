@@ -1,4 +1,4 @@
-package com.android.tiger.tools.floatwindow;
+package com.shiger.tools.floatwindow;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.tiger.tools.R;
+import com.shiger.tools.R;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -71,7 +71,6 @@ public class FloatWindowManager {
         if (smallWindow == null) {
             smallWindow = new FloatWindowSmallView(context);
             if (smallWindowParams == null) {
-
                 smallWindowParams = new WindowManager.LayoutParams();
                 //绕过悬浮窗权限
                 if(getPermission(context)){
@@ -127,7 +126,12 @@ public class FloatWindowManager {
                 bigWindowParams = new WindowManager.LayoutParams();
                 bigWindowParams.x = screenWidth / 2 - FloatWindowBigView.viewWidth / 2;
                 bigWindowParams.y = screenHeight / 2 - FloatWindowBigView.viewHeight / 2;
-                bigWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                //绕过悬浮窗权限
+                if(getPermission(context)){
+                    bigWindowParams.type = WindowManager.LayoutParams.TYPE_PHONE;
+                }else{
+                    bigWindowParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+                }
                 bigWindowParams.format = PixelFormat.RGBA_8888;
                 bigWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
                 bigWindowParams.width = FloatWindowBigView.viewWidth;

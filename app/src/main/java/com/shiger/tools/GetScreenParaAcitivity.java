@@ -1,4 +1,4 @@
-package com.android.tiger.tools;
+package com.shiger.tools;
 
 import android.app.Activity;
 import android.app.ActivityManager;

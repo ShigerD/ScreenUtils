@@ -1,4 +1,4 @@
-package com.android.tiger.tools;
+package com.shiger.tools;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.android.tiger.tools.Utils.HttpUtils;
+import com.shiger.tools.Utils.HttpUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;

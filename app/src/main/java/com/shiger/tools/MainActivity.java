@@ -1,4 +1,4 @@
-package com.android.tiger.tools;
+package com.shiger.tools;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -15,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.tiger.tools.floatwindow.FloatWindowService;
+import com.shiger.tools.floatwindow.FloatWindowService;
 
 import java.lang.reflect.Field;
 import java.util.Map;

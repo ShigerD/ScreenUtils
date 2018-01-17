@@ -12,8 +12,8 @@
     </string-array>
 
     <string-array name="activity_names">
-        <item>com.android.tiger.tools.GetScreenParaAcitivity</item>
-        <item>com.android.tiger.tools.AppInfoActivity</item>
+        <item>com.shiger.tools.GetScreenParaAcitivity</item>
+        <item>com.shiger.tools.AppInfoActivity</item>
     </string-array>
 
 </resources>

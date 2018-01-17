@@ -1,4 +1,4 @@
-package com.android.tiger.tools.floatwindow;
+package com.shiger.tools.floatwindow;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.tiger.tools.R;
+import com.shiger.tools.R;
 
 import java.lang.reflect.Field;
 
