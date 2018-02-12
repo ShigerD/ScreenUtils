@@ -7,42 +7,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
         <TextView
             android:id="@+id/start_appInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/square_frame"
-            android:text="应用信息"
+            android:background="@drawable/voice_btn_select"
             android:textSize="20sp"
             android:textColor="@android:color/white"
+            android:text="应用信息"
+            android:layout_marginTop="10dp"
             />
 
         <TextView
             android:id="@+id/start_get_screen_para"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/square_frame"
-            android:text="屏幕参数"
+            android:background="@drawable/voice_btn_select"
             android:textSize="20sp"
             android:textColor="@android:color/white"
+            android:text="屏幕参数"
+            android:layout_marginTop="10dp"
+
             />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="显示所有包信息"
-            android:visibility="gone"
+        <TextView
+            android:id="@+id/start_float_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/voice_btn_select"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:text="悬浮窗"
+            android:layout_marginTop="10dp"
             >
-        </Button>
+        </TextView>
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="获取屏幕参数"
-            android:visibility="gone"
-            >
-        </Button>
 
         <Button
             android:id="@+id/start_get_screen_bright"
@@ -53,14 +54,7 @@
             >
         </Button>
 
-        <Button
-            android:id="@+id/start_float_window"
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="开启悬浮窗"
-            >
 
-        </Button>
 
         <GridView
             android:id="@+id/grid_view"

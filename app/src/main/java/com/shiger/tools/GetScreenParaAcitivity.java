@@ -1,19 +1,14 @@
 package com.shiger.tools;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +23,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
     private TextView tv_densityDpi;
     private TextView tv_sw;
 
-    private int sereenRealHeight = 0;
+    private int screenRealHeight = 0;
     float mDensity = 0, mDensityDpi = 0;
     public static final int FLAG_STATUS_BAR_TRANSLUCENT = 0x02000000;
     @Override
@@ -55,7 +50,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
     }
 
     private String getxdpi() {
-        Log.d(TAG, "Density is " + (int) mDensityDpi);
+        Log.d(TAG, "mDensityDpi is " + (int) mDensityDpi);
         if ((int) mDensityDpi >= 480) {
             return "xxhdpi";
         } else if ((int) mDensityDpi >= 320) {
@@ -94,7 +89,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
     }
 
     private String getScreenSW() {
-        float sw = sereenRealHeight / mDensity;
+        float sw = screenRealHeight / mDensity;
         return String.valueOf(sw);
     }
 
@@ -106,7 +101,7 @@ public class GetScreenParaAcitivity extends BaseActivity {
         getWindowManager().getDefaultDisplay().getRealSize(point);
         tv_screen_width_real.setText(String.valueOf(point.x));
         tv_screen_hight_real.setText(String.valueOf(point.y));
-        sereenRealHeight = point.y;
+        screenRealHeight = point.y;
         Log.d(TAG, "the screen real size is " + point.toString());
     }
 

@@ -50,15 +50,15 @@ public class EVcardIntest extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        mResultTextview = findViewById(R.id.chat_text);
-        mContentEt = findViewById(R.id.content);
+        mResultTextview = (TextView) findViewById(R.id.chat_text);
+        mContentEt = (EditText) findViewById(R.id.content);
 
 // fail
         result = HttpUtils.sendEvPost(HTTP_POST, mContentEt.getText().toString());
         result = result.replace("null","");
         Log.d(TAG, "result--- " + result);
 
-        mOKbutton = findViewById(R.id.ok_button);
+        mOKbutton = (Button) findViewById(R.id.ok_button);
         mOKbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

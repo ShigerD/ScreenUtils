@@ -24,7 +24,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private String TAG = "MainActivity";
-    Button btnStartFloatWindow;
+    View btnStartFloatWindow;
     TextView btnStartGetScreenPara, btnStartAppInfo;
     TextView btnStartBright;
     private Timer timer = new Timer();
@@ -47,10 +47,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.start_appInfo:
                 Intent appInfoIntent = new Intent(MainActivity.this, AppInfoActivity.class);
                 startActivity(appInfoIntent);
+                break;
             case R.id.start_float_window:
                 Intent service = new Intent(MainActivity.this, FloatWindowService.class);
                 startService(service);
-//                finish();
                 break;
             case R.id.start_get_screen_para:
                 Intent getScreenParaIntent = new Intent(MainActivity.this, GetScreenParaAcitivity.class);
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void setupView() {
-        btnStartFloatWindow = (Button) findViewById(R.id.start_float_window);
+        btnStartFloatWindow = (View) findViewById(R.id.start_float_window);
         btnStartGetScreenPara = (TextView) findViewById(R.id.start_get_screen_para);
         btnStartBright = (Button) findViewById(R.id.start_get_screen_bright);
         btnStartAppInfo = (TextView) findViewById(R.id.start_appInfo);

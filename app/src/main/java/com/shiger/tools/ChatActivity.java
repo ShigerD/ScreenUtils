@@ -50,9 +50,9 @@ public class ChatActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        mResultTextview = findViewById(R.id.chat_text);
-        mContentEt = findViewById(R.id.content);
-        mOKbutton = findViewById(R.id.ok_button);
+        mResultTextview = (TextView) findViewById(R.id.chat_text);
+        mContentEt = (EditText) findViewById(R.id.content);
+        mOKbutton = (Button) findViewById(R.id.ok_button);
         mOKbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
