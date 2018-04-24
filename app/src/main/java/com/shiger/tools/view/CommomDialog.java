@@ -1,4 +1,4 @@
-package com.shiger.tools;
+package com.shiger.tools.view;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,18 +7,20 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.shiger.tools.R;
+
 public class CommomDialog extends Dialog implements View.OnClickListener{
-    private TextView contentTxt;
-    private TextView titleTxt;
-    private TextView submitTxt;
-    private TextView cancelTxt;
+    private TextView mContentTxt;
+    private TextView mTitleTxt;
+    private TextView mSubmitTxt;
+    private TextView mCancelTxt;
 
     private Context mContext;
-    private String content;
-    private OnCloseListener listener;
-    private String positiveName;
-    private String negativeName;
-    private String title;
+    private String mContent;
+    private OnCloseListener mListener;
+    private String mPositiveName;
+    private String mNegativeName;
+    private String mTitle;
 
     public CommomDialog(Context context) {
         super(context);
@@ -28,14 +30,14 @@ public class CommomDialog extends Dialog implements View.OnClickListener{
     public CommomDialog(Context context, int themeResId, String content) {
         super(context, themeResId);
         this.mContext = context;
-        this.content = content;
+        this.mContent = content;
     }
 
     public CommomDialog(Context context, int themeResId, String content, OnCloseListener listener) {
         super(context, themeResId);
         this.mContext = context;
-        this.content = content;
-        this.listener = listener;
+        this.mContent = content;
+        this.mListener = listener;
     }
 
     protected CommomDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
@@ -43,48 +45,48 @@ public class CommomDialog extends Dialog implements View.OnClickListener{
         this.mContext = context;
     }
 
-    public CommomDialog setTitle(String title){
-        this.title = title;
+    public CommomDialog setmTitle(String mTitle){
+        this.mTitle = mTitle;
         return this;
     }
 
     public CommomDialog setPositiveButton(String name){
-        this.positiveName = name;
+        this.mPositiveName = name;
         return this;
     }
 
     public CommomDialog setNegativeButton(String name){
-        this.negativeName = name;
+        this.mNegativeName = name;
         return this;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_commom);
+        setContentView(R.layout.dialog_common);
         setCanceledOnTouchOutside(false);
         initView();
     }
 
     private void initView(){
-        contentTxt = (TextView)findViewById(R.id.content);
-        titleTxt = (TextView)findViewById(R.id.title);
-        submitTxt = (TextView)findViewById(R.id.submit);
-        submitTxt.setOnClickListener(this);
-        cancelTxt = (TextView)findViewById(R.id.cancel);
-        cancelTxt.setOnClickListener(this);
+        mContentTxt = (TextView)findViewById(R.id.content);
+        mTitleTxt = (TextView)findViewById(R.id.title);
+        mSubmitTxt = (TextView)findViewById(R.id.submit);
+        mSubmitTxt.setOnClickListener(this);
+        mCancelTxt = (TextView)findViewById(R.id.cancel);
+        mCancelTxt.setOnClickListener(this);
 
-        contentTxt.setText(content);
-        if(!TextUtils.isEmpty(positiveName)){
-            submitTxt.setText(positiveName);
+        mContentTxt.setText(mContent);
+        if(!TextUtils.isEmpty(mPositiveName)){
+            mSubmitTxt.setText(mPositiveName);
         }
 
-        if(!TextUtils.isEmpty(negativeName)){
-            cancelTxt.setText(negativeName);
+        if(!TextUtils.isEmpty(mNegativeName)){
+            mCancelTxt.setText(mNegativeName);
         }
 
-        if(!TextUtils.isEmpty(title)){
-            titleTxt.setText(title);
+        if(!TextUtils.isEmpty(mTitle)){
+            mTitleTxt.setText(mTitle);
         }
 
     }
@@ -93,14 +95,14 @@ public class CommomDialog extends Dialog implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancel:
-                if(listener != null){
-                    listener.onClick(this, false);
+                if(mListener != null){
+                    mListener.onClick(this, false);
                 }
                 this.dismiss();
                 break;
             case R.id.submit:
-                if(listener != null){
-                    listener.onClick(this, true);
+                if(mListener != null){
+                    mListener.onClick(this, true);
                 }
                 break;
         }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="460px"
+    android:layout_height="240px"
+    android:background="@drawable/bg_round_dark_gray"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="42px"
+        android:layout_alignParentTop="true">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="30px"
+                android:textColor="@color/white"
+                android:text="@string/car_full"
+                />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="24px"
+                android:textColor="#80ffffff"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="12px"
+                android:text="@string/go_to_other_shop"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <ImageView
+        android:layout_width="464px"
+        android:layout_height="1px"
+        android:background="#19ffffff"
+        android:layout_above="@+id/l_confirm"
+        android:layout_centerHorizontal="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/l_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4bde45"
+            android:textSize="26px"
+            android:text="@string/i_know_it"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

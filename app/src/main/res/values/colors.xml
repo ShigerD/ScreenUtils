@@ -3,5 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="white">#fff</color>
+    <color name="dialog_bg">#363d4c</color>
+
+    <color name="line_gray">#5e6470</color>
+    <color name="button_green">#40a83d</color>
+
+    <color name="grey_button_choose">#2a303a</color>
+    <color name="grey_button_normal">#121924</color>
+    <color name="grey_line">#414750</color>
+    <color name="green_line">#3bbf36</color>
+
+
 </resources>

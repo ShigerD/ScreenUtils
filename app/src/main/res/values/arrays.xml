@@ -16,4 +16,45 @@
         <item>com.shiger.tools.AppInfoActivity</item>
     </string-array>
 
+
+    <string-array name="car_help_title">
+        <item>启动</item>
+        <item>准备</item>
+        <item>行车</item>
+        <item>空调</item>
+        <item>停车</item>
+        <item>收音机</item>
+        <item>车门锁</item>
+        <item>后备箱</item>
+        <item>故障灯</item>
+    </string-array>
+
+    <string-array name="car_help_value">
+
+        <item>脚踩刹车，顺时针旋转钥匙至20°\n，听到滴声后， 再向右旋约\n20°</item>
+        <item>看续航，仪表盘显示“READY”，\n车辆已启动; 外后视镜请 手动调\n节</item>
+        <item>挂D档（限速75码）或S档，放下\n手刹，脚踩油门前进</item>
+        <item>打开空调（位于中控下部）. 并\n更加需要选择冷热, 以及温度、\n风量、吹风模式（如吹头、吹脚\n、除霜等）</item>
+        <item>停稳，挂P档，拉手刹；\n手动关闭车灯和车窗，熄火。</item>
+        <item>1.进入静音模式，按压旋钮①；\n关机，长按旋钮t，；调节音量，\n旋转旋钮①。\n
+            2.切换波段，按压旋钮③；调节\n频率旋转旋钮③。</item>
+        <item>按所示按钮，按前面是车门解锁\n，按后面是车门上锁</item>
+        <item>位于驾驶席地面左侧，用力拉起\n后可开启后备箱</item>
+        <item>①蓄电池故障；②气囊故障；\n③制动系统故障；④动力系统\n断开\n⑤整车绝缘故障；⑥ABS故障\n⑦EPS故障；⑧动力电池故障\n⑨电控故障；⑩电机故障</item>
+
+    </string-array>
+
+    <integer-array name="car_help_images">
+        <item>@drawable/car_help_image_1</item>
+        <item>@drawable/car_help_image_2</item>
+        <item>@drawable/car_help_image_3</item>
+        <item>@drawable/car_help_image_4</item>
+        <item>@drawable/car_help_image_5</item>
+        <item>@drawable/car_help_image_6</item>
+        <item>@drawable/car_help_image_7</item>
+        <item>@drawable/car_help_image_8</item>
+        <item>@drawable/car_help_image_9</item>
+    </integer-array>
+
+
 </resources>

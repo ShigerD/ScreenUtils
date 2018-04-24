@@ -10,5 +10,15 @@
     <string name="screen_width">min size::</string>
     <string name="app_infos">应用信息</string>
     <string name="accessibility_description">启动无障碍服务。</string>
+    <string name="car_help_str_boot_1">脚踩刹车, 顺时针旋转钥匙至20° , 听到滴声后, 再向右旋约 20°</string>
+    <string name="car_help_boot">启动</string>
+    <string name="ground_lock">降地锁</string>
+    <string name="choose_available_park">选择可用车位</string>
+    <string name="i_konw_it">我知道了</string>
+    <string name="down_lock_sus">降地锁成功</string>
+    <string name="ge_chewei_keyong">个车位可用</string>
+    <string name="i_know_it">我知道了</string>
+    <string name="go_to_other_shop">此网点车位已满，请前往其他网点停车</string>
+    <string name="car_full">车位已满</string>
 
 </resources>

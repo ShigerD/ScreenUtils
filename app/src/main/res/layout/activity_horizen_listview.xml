@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_button_normal"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="59px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_alignParentLeft="true"
+            android:layout_width="85px"
+            android:layout_height="40px"
+            android:background="@drawable/setting_back_icon"/>
+
+        <com.shiger.tools.view.HorizontalListView
+            android:id="@+id/horizon_list"
+            android:layout_width="760px"
+            android:layout_height="wrap_content"
+            android:divider="#666666"
+            android:dividerHeight="1dp"
+            >
+        </com.shiger.tools.view.HorizontalListView>
+
+        <TextView
+            android:id="@+id/page_num_text"
+            android:layout_width="114px"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:paddingRight="12px"
+            android:paddingLeft="12px"
+            android:text = "1/9"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grey_line"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
+
+    <!--<include layout="@layout/view_page_item">-->
+
+    <!--</include>-->
+
+
+</LinearLayout>

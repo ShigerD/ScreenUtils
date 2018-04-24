@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="switch_radius">20dp</dimen>
+    <dimen name="custom_list_view_imageview_padding_top_bottom">4dp</dimen>
 
 </resources>

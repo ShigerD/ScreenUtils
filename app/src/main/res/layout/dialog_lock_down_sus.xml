@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="500px"
+    android:layout_height="340px"
+    android:background="@drawable/bg_round_dark_gray"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="42px"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tv_lock_down_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="160px"
+            android:textColor="#4bde45"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="top"
+            android:paddingLeft="62px"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="30px"
+                android:textColor="@color/white"
+                android:text="@string/down_lock_sus"
+                />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="24px"
+                android:textColor="#80ffffff"
+                android:layout_marginTop="10px"
+                android:layout_marginBottom="12px"
+                />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="180px"
+                android:layout_height="56px"
+                android:text="@string/i_konw_it"
+                android:textColor="@color/white"
+                android:background="@drawable/square_round_fill"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    
+    <ImageView
+        android:layout_width="464px"
+        android:layout_height="1px"
+        android:background="#19ffffff"
+        android:layout_above="@+id/ll_more_lock"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/ll_more_lock"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/avai_lock_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4bde45"
+            android:layout_marginLeft="46px"
+            android:textSize="26px"
+            android:text="XX"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="26px"
+            android:text="@string/ge_chewei_keyong"
+            />
+
+        <ImageView
+            android:layout_width="44px"
+            android:layout_height="44px"
+            android:src="@drawable/lock_more_icon"
+            android:layout_marginLeft="230px"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
